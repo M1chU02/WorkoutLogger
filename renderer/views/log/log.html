@@ -1,0 +1,20 @@
+<h1>Log Workout</h1>
+<form id="logForm">
+  <input type="date" id="date" required />
+  <select id="type">
+    <option value="running">Running</option>
+    <option value="cycling">Cycling</option>
+    <option value="hiking">Hiking</option>
+    <option value="strength">Strength</option>
+  </select>
+  <input
+    type="text"
+    id="duration"
+    placeholder="Duration (e.g. 00:45)"
+    required />
+  <input type="text" id="distance" placeholder="Distance in km" />
+  <textarea id="notes" placeholder="Notes..."></textarea>
+  <button type="button" id="uploadBtn">Upload GPX</button>
+  <span id="gpxPath"></span>
+  <button type="submit">Save Workout</button>
+</form>
