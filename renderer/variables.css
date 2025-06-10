@@ -1,0 +1,14 @@
+:root {
+  --color-bg-base: #121212;
+  --color-bg-surface: #1e1e1e;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #aaaaaa;
+
+  --color-accent-green: #00c896;
+  --color-accent-chart: #00aa80;
+
+  --color-border-default: #2a2a2a;
+
+  --color-status-error: #ff3b30;
+}

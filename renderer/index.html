@@ -3,15 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>Workout Logger</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+    <link rel="stylesheet" href="variables.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="sidebar">
-      <button onclick="loadView('home')">Home</button>
-      <button onclick="loadView('log')">Log Workout</button>
-      <button onclick="loadView('activities')">Activities</button>
-      <button onclick="loadView('analyze')">Analyze</button>
-      <button onclick="loadView('settings')">Settings</button>
+      <h2>Workout Logger</h2>
+      <div class="buttons">
+        <button class="active" onclick="loadView('home')">Home</button>
+        <button onclick="loadView('log')">Log Workout</button>
+        <button onclick="loadView('activities')">Activities</button>
+        <button onclick="loadView('analyze')">Analyze</button>
+        <button onclick="loadView('settings')">Settings</button>
+      </div>
     </div>
     <div class="main" id="app">
       <!-- View will load here -->
