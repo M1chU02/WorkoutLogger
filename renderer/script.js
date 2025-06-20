@@ -4,13 +4,38 @@ let gpxFilePath = "";
 async function loadView(view) {
   const res = await fetch(`views/${view}/${view}.html`);
   const html = await res.text();
-  app.innerHTML = html;
 
-  if (view === "home") loadHome();
-  if (view === "log") initLogForm();
+  // Parse the fetched markup once
+  const parsed = new DOMParser().parseFromString(html, "text/html");
+
+  /* ---------- styles ---------- */
+  parsed.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
+    // fix relative paths that were written for the view folder
+    const href = link.getAttribute("href");
+    const fixed = href.startsWith("http") ? href : `views/${view}/${href}`;
+    const tag = document.createElement("link");
+    tag.rel = "stylesheet";
+    tag.href = fixed;
+    document.head.appendChild(tag);
+  });
+
+  /* ---------- scripts ---------- */
+  parsed.querySelectorAll("script").forEach((old) => {
+    const tag = document.createElement("script");
+    if (old.src) {
+      const src = old.getAttribute("src");
+      tag.src = src.startsWith("http") ? src : `views/${view}/${src}`;
+    } else {
+      tag.textContent = old.textContent; // inline script
+    }
+    document.body.appendChild(tag);
+  });
+
+  /* ---------- markup ---------- */
+  app.innerHTML = parsed.body.innerHTML; // only what was inside <body>
 }
 
-async function loadHome() {
+/*async function loadHome() {
   const container = document.getElementById("recentWorkouts");
   const workouts = await window.electronAPI.readWorkouts();
   container.innerHTML = workouts
@@ -46,6 +71,6 @@ function initLogForm() {
     await window.electronAPI.writeWorkout(workout);
     loadView("home");
   };
-}
+}*/
 
 loadView("home"); // Load default view on app start

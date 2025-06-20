@@ -1,9 +1,12 @@
+@import "variables.css";
+
 body {
   display: flex;
   font-family: "Inter", sans-serif;
   background: var(--color-bg-base);
   color: var(--color-text-primary);
   margin: 0;
+  width: 1280px;
   height: 100vh;
 }
 
@@ -65,8 +68,8 @@ body {
   border-bottom-left-radius: 8px;
 }
 
-.main {
-  flex: 1;
-  padding: 2rem;
-  overflow-y: auto;
+#app {
+  box-sizing: border-box;
+  width: 1080px;
+  height: 832px;
 }
