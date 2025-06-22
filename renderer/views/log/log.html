@@ -1,20 +1,40 @@
-<h1>Log Workout</h1>
-<form id="logForm">
-  <input type="date" id="date" required />
-  <select id="type">
-    <option value="running">Running</option>
-    <option value="cycling">Cycling</option>
-    <option value="hiking">Hiking</option>
-    <option value="strength">Strength</option>
-  </select>
-  <input
-    type="text"
-    id="duration"
-    placeholder="Duration (e.g. 00:45)"
-    required />
-  <input type="text" id="distance" placeholder="Distance in km" />
-  <textarea id="notes" placeholder="Notes..."></textarea>
-  <button type="button" id="uploadBtn">Upload GPX</button>
-  <span id="gpxPath"></span>
-  <button type="submit">Save Workout</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="main">
+      <h1>Log new workout</h1>
+      <form id="logForm">
+        <div id="formContent">
+          <div id="typeDateContainer">
+            <select id="type">
+              <option value="strength">Strength</option>
+              <option value="cycling">Cycling</option>
+              <option value="running">Running</option>
+              <option value="hiking">Hiking</option>
+            </select>
+            <input type="date" id="date" required />
+          </div>
+          <div class="workoutDetails">
+            <input
+              type="text"
+              id="duration"
+              placeholder="Duration (e.g. 00:45)"
+              required />
+            <input type="text" id="distance" placeholder="Distance in km" />
+            <textarea id="notes" placeholder="Notes..."></textarea>
+          </div>
+          <div id="gpxUpload">
+            <button type="button" id="uploadBtn">Upload GPX</button>
+            <span id="gpxPath"></span>
+          </div>
+          <button type="submit">+ Log activity</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
