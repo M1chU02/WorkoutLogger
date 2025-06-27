@@ -26,13 +26,20 @@ async function loadView(view) {
       const src = old.getAttribute("src");
       tag.src = src.startsWith("http") ? src : `views/${view}/${src}`;
     } else {
-      tag.textContent = old.textContent; // inline script
+      tag.textContent = old.textContent;
     }
     document.body.appendChild(tag);
   });
 
   /* ---------- markup ---------- */
   app.innerHTML = parsed.body.innerHTML; // only what was inside <body>
+
+  try {
+    const module = await import(`./views/${view}/script.js`);
+    if (module.init) module.init();
+  } catch (e) {
+    console.error("Error loading module:", e);
+  }
 }
 
 /*async function loadHome() {

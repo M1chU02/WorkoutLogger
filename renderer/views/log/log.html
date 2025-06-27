@@ -9,32 +9,18 @@
     <div id="main">
       <h1>Log new workout</h1>
       <form id="logForm">
-        <div id="formContent">
-          <div id="typeDateContainer">
-            <select id="type">
-              <option value="strength">Strength</option>
-              <option value="cycling">Cycling</option>
-              <option value="running">Running</option>
-              <option value="hiking">Hiking</option>
-            </select>
-            <input type="date" id="date" required />
-          </div>
-          <div class="workoutDetails">
-            <input
-              type="text"
-              id="duration"
-              placeholder="Duration (e.g. 00:45)"
-              required />
-            <input type="text" id="distance" placeholder="Distance in km" />
-            <textarea id="notes" placeholder="Notes..."></textarea>
-          </div>
-          <div id="gpxUpload">
-            <button type="button" id="uploadBtn">Upload GPX</button>
-            <span id="gpxPath"></span>
-          </div>
-          <button type="submit">+ Log activity</button>
+        <div id="typeDateContainer">
+          <select id="type">
+            <option selected value="strength">Strength</option>
+            <option value="cycling">Cycling</option>
+            <option value="running">Running</option>
+            <option value="hiking">Hiking</option>
+          </select>
+          <input type="date" id="date" required />
         </div>
+        <div id="formContent"></div>
       </form>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
